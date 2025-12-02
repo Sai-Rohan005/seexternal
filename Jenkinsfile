@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage('git repo & clean') {
             steps {
-                bat "git clone https://github.com/Sai-Rohan005/seexternal.git"
-                bat "mvn clean -f seexternal/src/main/webapp"
+                sh "git clone https://github.com/Sai-Rohan005/seexternal.git"
+                sh "mvn clean -f seexternal/src/main/webapp"
             }
         }
         stage('install') {
