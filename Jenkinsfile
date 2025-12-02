@@ -4,25 +4,24 @@ pipeline {
         maven 'MAVEN_HOME'
     }
     stages {
-        stage('git repo & clean') {
+        stage('clean') {
             steps {
-                bat "git clone https://github.com/Sai-Rohan005/seexternal.git"
-                bat "mvn clean -f seexternal/src/main/webapp"
+                bat "mvn clean -f seexternal"
             }
         }
         stage('install') {
             steps {
-                bat "mvn install -f seexternal/src/main/webapp" 
+                bat "mvn install -f seexternal" 
             }
         }
         stage('test') {
             steps {
-                bat "mvn test -f seexternal/src/main/webapp"
+                bat "mvn test -f seexternal"
             }
         }
         stage('package') {
             steps {
-                bat "mvn package -f seexternal/src/main/webapp"
+                bat "mvn package -f seexternal"
             }
         }
     }
